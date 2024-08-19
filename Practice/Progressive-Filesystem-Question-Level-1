@@ -1,0 +1,21 @@
+from integer_container import IntegerContainer
+
+class IntegerContainerImpl(IntegerContainer):
+
+    def __init__(self):
+        self.numbers = {}
+        self.counter = 0
+
+    # TODO: implement interface methods here
+    def add(self, value: int) -> int:
+        self.numbers[value] = self.numbers.get(value, 0) + 1
+        self.counter+=1
+        return self.counter
+        
+        
+    def delete(self, value: int) -> bool:
+        if self.numbers.get(value, 0) > 0:
+            self.numbers[value]-=1
+            self.counter-=1
+            return True
+        return False
